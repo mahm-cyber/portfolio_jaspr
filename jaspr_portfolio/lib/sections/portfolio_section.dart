@@ -1,6 +1,5 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import '../components/buttons.dart';
 import '../constants/theme.dart';
 
 class PortfolioSection extends StatelessComponent {

@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import '../components/buttons.dart';
-import '../components/cards.dart';
 import '../components/service_card.dart';
 import '../constants/theme.dart';
 import '../sections/experience_section.dart';

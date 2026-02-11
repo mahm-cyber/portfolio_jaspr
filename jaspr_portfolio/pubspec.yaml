@@ -24,6 +24,7 @@ dev_dependencies:
   jaspr_test: ^0.22.2
   riverpod_generator: ^3.0.0
 
+  test: any
 jaspr:
   mode: static
   flutter: embedded
