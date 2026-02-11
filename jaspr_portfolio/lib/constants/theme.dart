@@ -23,38 +23,38 @@ class AppTextStyles {
   static const String fontFamily = 'Plus Jakarta Sans, sans-serif';
 
   static Styles get heroTitle => Styles(
-    raw: {'font-family': fontFamily},
+    color: AppColors.primary,
     fontSize: 48.px,
     fontWeight: FontWeight.bold,
-    color: AppColors.primary,
+    raw: {'font-family': fontFamily},
   );
 
   static Styles get sectionTitle => Styles(
-    raw: {'font-family': fontFamily},
+    color: AppColors.primary,
     fontSize: 32.px,
     fontWeight: FontWeight.bold,
-    color: AppColors.primary,
+    raw: {'font-family': fontFamily},
   );
 
   static Styles get body => Styles(
-    raw: {'font-family': fontFamily},
-    fontSize: 16.px,
     color: AppColors.textSecondary,
+    fontSize: 16.px,
     lineHeight: 1.5.rem,
+    raw: {'font-family': fontFamily},
   );
 
   static Styles get navItem => Styles(
-    raw: {'font-family': fontFamily},
+    color: AppColors.textPrimary,
     fontSize: 14.px,
     fontWeight: FontWeight.w500,
-    color: AppColors.textPrimary,
+    raw: {'font-family': fontFamily},
   );
 
   static Styles get navItemActive => Styles(
-    raw: {'font-family': fontFamily},
+    color: AppColors.textPrimary,
     fontSize: 14.px,
     fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
+    raw: {'font-family': fontFamily},
   );
 }
 
@@ -65,12 +65,12 @@ List<StyleRule> get globalStyles => [
     selector: const Selector.list([Selector.tag('body'), Selector.tag('html')]),
     styles: Styles.combine([
       Styles(
-        margin: Margin.all(0.px),
-        padding: Padding.all(0.px),
         width: 100.percent,
         height: 100.percent,
-        backgroundColor: AppColors.background,
+        padding: Padding.all(0.px),
+        margin: Margin.all(0.px),
         color: AppColors.textPrimary,
+        backgroundColor: AppColors.background,
       ),
       Styles(raw: {'font-family': AppTextStyles.fontFamily}),
     ]),

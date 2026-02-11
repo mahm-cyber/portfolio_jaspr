@@ -44,17 +44,9 @@ class App extends StatelessComponent {
     css('.main', [
       // The '&' refers to the parent selector of a nested style rules.
       css('&').styles(
-        display: .flex,
-        height: 100.vh,
-        flexDirection: .column,
-        flexWrap: .wrap,
-      ),
-      css('section').styles(
-        display: .flex,
-        flexDirection: .column,
-        justifyContent: .center,
-        alignItems: .center,
-        flex: Flex(grow: 1),
+        display: Display.flex,
+        minHeight: 100.vh,
+        flexDirection: FlexDirection.column,
       ),
     ]),
   ];

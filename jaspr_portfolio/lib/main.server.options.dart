@@ -13,6 +13,19 @@ import 'package:jaspr_portfolio/pages/about.dart' as _about;
 import 'package:jaspr_portfolio/pages/contact.dart' as _contact;
 import 'package:jaspr_portfolio/pages/home.dart' as _home;
 import 'package:jaspr_portfolio/pages/projects.dart' as _projects;
+import 'package:jaspr_portfolio/sections/blog_section.dart' as _blog_section;
+import 'package:jaspr_portfolio/sections/contact_section.dart'
+    as _contact_section;
+import 'package:jaspr_portfolio/sections/experience_section.dart'
+    as _experience_section;
+import 'package:jaspr_portfolio/sections/footer_section.dart'
+    as _footer_section;
+import 'package:jaspr_portfolio/sections/portfolio_section.dart'
+    as _portfolio_section;
+import 'package:jaspr_portfolio/sections/testimonial_section.dart'
+    as _testimonial_section;
+import 'package:jaspr_portfolio/sections/why_hire_me_section.dart'
+    as _why_hire_me_section;
 import 'package:jaspr_portfolio/app.dart' as _app;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -48,6 +61,13 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._contact.Contact.styles,
     ..._home.Home.styles,
     ..._projects.Projects.styles,
+    ..._blog_section.BlogSection.styles,
+    ..._contact_section.ContactSection.styles,
+    ..._experience_section.ExperienceSection.styles,
+    ..._footer_section.FooterSection.styles,
+    ..._portfolio_section.PortfolioSection.styles,
+    ..._testimonial_section.TestimonialSection.styles,
+    ..._why_hire_me_section.WhyHireMeSection.styles,
     ..._app.App.styles,
   ],
 );

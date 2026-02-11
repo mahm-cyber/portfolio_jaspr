@@ -4,6 +4,13 @@ import '../components/buttons.dart';
 import '../components/cards.dart';
 import '../components/service_card.dart';
 import '../constants/theme.dart';
+import '../sections/experience_section.dart';
+import '../sections/why_hire_me_section.dart';
+import '../sections/portfolio_section.dart';
+import '../sections/testimonial_section.dart';
+import '../sections/contact_section.dart';
+import '../sections/blog_section.dart';
+import '../sections/footer_section.dart';
 
 class Home extends StatelessComponent {
   const Home({super.key});
@@ -23,22 +30,22 @@ class Home extends StatelessComponent {
             text("Product Designer"),
           ]),
           p(classes: 'hero-description', [
-            text("Jenny’s Exceptional product design ensure our website’s success. Highly Recommended")
+            text("Jenny’s Exceptional product design ensure our website’s success. Highly Recommended"),
           ]),
           div(classes: 'cta-group', [
             PrimaryButton(label: 'Portfolio', href: '/projects'),
             PrimaryButton(label: 'Hire me', href: '/contact', isOutlined: true),
           ]),
         ]),
-        
+
         div(classes: 'hero-visual', [
           // Profile Image with Decorations
           div(classes: 'profile-container', [
-             img(src: 'images/profile.png', classes: 'profile-image', alt: 'Jenny Profile'),
-             img(src: 'images/arrow.svg', classes: 'decoration-arrow', alt: ''),
-             img(src: 'images/decoration.svg', classes: 'decoration-shape', alt: ''),
+            img(src: 'images/profile.png', classes: 'profile-image', alt: 'Jenny Profile'),
+            img(src: 'images/arrow.svg', classes: 'decoration-arrow', alt: ''),
+            img(src: 'images/decoration.svg', classes: 'decoration-shape', alt: ''),
           ]),
-          
+
           // Floating Stats Card
           div(classes: 'floating-card stats-card', [
             div(classes: 'stats-content', [
@@ -52,20 +59,24 @@ class Home extends StatelessComponent {
             img(src: 'images/quote.svg', classes: 'quote-icon', alt: 'Quote'),
             div([
               div(classes: 'stars', [
-                 // 5 stars simulation
-                 for(var i=0; i<5; i++) img(src: 'images/star.svg', width: 12, height: 12)
+                // 5 stars simulation
+                for (var i = 0; i < 5; i++) img(src: 'images/star.svg', width: 12, height: 12),
               ]),
               p([text("Jenny’s Exceptional product design...")]),
             ]),
           ]),
         ]),
       ]),
-      
+
       // Services Section
       section(classes: 'services', [
         div(classes: 'services-header', [
           h2([text('My Services')]),
-          p([text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales')]),
+          p([
+            text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales',
+            ),
+          ]),
         ]),
         div(classes: 'services-grid', [
           ServiceCard(title: 'UI/ UX Design', imageUrl: 'images/service_ui_ux.png'),
@@ -74,13 +85,26 @@ class Home extends StatelessComponent {
         ]),
       ]),
 
-      // Footer / Socials (Simple version based on assets)
-      footer(classes: 'home-footer', [
-        a(href: '#', [img(src: 'images/facebook.svg', alt: 'Facebook')]),
-        a(href: '#', [img(src: 'images/youtube.svg', alt: 'YouTube')]),
-        a(href: '#', [img(src: 'images/whatsapp.svg', alt: 'WhatsApp')]),
-        a(href: '#', [img(src: 'images/instagram.svg', alt: 'Instagram')]),
-      ]),
+      // Work Experience Timeline
+      ExperienceSection(),
+
+      // Why Hire Me Section
+      WhyHireMeSection(),
+
+      // Portfolio Section
+      PortfolioSection(),
+
+      // Testimonial Section
+      TestimonialSection(),
+
+      // Contact CTA Section
+      ContactSection(),
+
+      // Blog Section
+      BlogSection(),
+
+      // Footer
+      FooterSection(),
     ]);
   }
 
@@ -91,10 +115,15 @@ class Home extends StatelessComponent {
         display: Display.flex,
         width: 100.percent,
         maxWidth: 1440.px, // Max width from Figma usually
-        padding: Padding.only(top: 120.px, bottom: 40.px, left: 20.px, right: 20.px),
+        padding: Padding.only(
+          top: 120.px,
+          bottom: 0.px,
+          left: 20.px,
+          right: 20.px,
+        ), // Removed bottom padding as footer handles it
         margin: Margin.symmetric(horizontal: Unit.auto),
         flexDirection: FlexDirection.column,
-        overflow: Overflow.hidden, // Prevent scrollbars from floating elements
+        raw: {'overflow-x': 'hidden'},
       ),
       css('.hero', [
         css('&').styles(
@@ -151,7 +180,7 @@ class Home extends StatelessComponent {
         gap: Gap.all(16.px),
         margin: Margin.only(top: 20.px),
       ),
-      
+
       // Visual Section
       css('.hero-visual').styles(
         position: Position.relative(),
@@ -220,7 +249,7 @@ class Home extends StatelessComponent {
         height: 24.px,
         margin: Margin.only(bottom: 8.px),
       ),
-      
+
       // Footer
       css('.home-footer').styles(
         display: Display.flex,

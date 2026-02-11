@@ -21,22 +21,18 @@ class Projects extends StatelessComponent {
               (
                 context,
               ) {
-                final projectsAsync = context.watch(projectsProvider);
+                final projects = context.watch(projectsProvider);
 
-                return projectsAsync.when(
-                  data: (projects) => .fragment(
-                    [
-                      for (var project in projects)
-                        ProjectCard(
-                          title: project.title,
-                          description: project.description,
-                          imageUrl: project.imageUrl,
-                          tags: project.tags,
-                        ),
-                    ],
-                  ),
-                  loading: () => div(classes: 'loading', [Component.text('Loading projects...')]),
-                  error: (err, stack) => div(classes: 'error', [Component.text('Error loading projects: $err')]),
+                return .fragment(
+                  [
+                    for (var project in projects)
+                      ProjectCard(
+                        title: project.title,
+                        description: project.description,
+                        imageUrl: project.imageUrl,
+                        tags: project.tags,
+                      ),
+                  ],
                 );
               },
         ),

@@ -95,66 +95,73 @@ class _ContactState extends State<Contact> {
             (
               context,
             ) {
-              final contactState = context.watch(contactProvider);
-              final notifier = context.read(contactProvider.notifier);
+              // Safe check for server-side rendering to avoid "Scheduling a frame" errors
+              // when accessing providers that might trigger state updates during build.
+              try {
+                final contactState = context.watch(contactProvider);
+                final notifier = context.read(contactProvider.notifier);
 
-              if (contactState.isSuccess) {
-                return div(classes: 'success-message', [
-                  h2([Component.text('Message Sent!')]),
-                  p([Component.text('Thank you for reaching out. I will get back to you soon.')]),
-                  PrimaryButton(
-                    label: 'Send Another',
-                    onClick: () {
-                      // Reset state logic could be added here
-                    },
-                  ),
+                if (contactState.isSuccess) {
+                  return div(classes: 'success-message', [
+                    h2([Component.text('Message Sent!')]),
+                    p([Component.text('Thank you for reaching out. I will get back to you soon.')]),
+                    PrimaryButton(
+                      label: 'Send Another',
+                      onClick: () {
+                        // Reset state logic could be added here
+                      },
+                    ),
+                  ]);
+                }
+
+                return form(classes: 'contact-form', [
+                  if (contactState.error != null) div(classes: 'error-message', [Component.text(contactState.error!)]),
+
+                  div(classes: 'form-group', [
+                    label(htmlFor: 'name', [Component.text('Name')]),
+                    input(
+                      id: 'name',
+                      type: InputType.text,
+                      name: 'name',
+                      attributes: {'placeholder': 'Your Name'},
+                      events: {'input': (e) => name = (e.target as dynamic).value},
+                    ),
+                  ]),
+                  div(classes: 'form-group', [
+                    label(htmlFor: 'email', [Component.text('Email')]),
+                    input(
+                      id: 'email',
+                      type: InputType.email,
+                      name: 'email',
+                      attributes: {'placeholder': 'your@email.com'},
+                      events: {'input': (e) => email = (e.target as dynamic).value},
+                    ),
+                  ]),
+                  div(classes: 'form-group', [
+                    label(htmlFor: 'message', [Component.text('Message')]),
+                    textarea(
+                      id: 'message',
+                      name: 'message',
+                      attributes: {'placeholder': 'Your Message', 'rows': '5'},
+                      events: {'input': (e) => message = (e.target as dynamic).value},
+                      [],
+                    ),
+                  ]),
+
+                  if (contactState.isLoading)
+                    div(classes: 'loading', [Component.text('Sending...')])
+                  else
+                    PrimaryButton(
+                      label: 'Send Message',
+                      onClick: () {
+                        notifier.submitForm(ContactForm(name: name, email: email, message: message));
+                      },
+                    ),
                 ]);
+              } catch (e) {
+                // Fallback for SSR or error states
+                return div(classes: 'contact-form', [text('Loading contact form...')]);
               }
-
-              return form(classes: 'contact-form', [
-                if (contactState.error != null) div(classes: 'error-message', [Component.text(contactState.error!)]),
-
-                div(classes: 'form-group', [
-                  label(htmlFor: 'name', [Component.text('Name')]),
-                  input(
-                    id: 'name',
-                    type: InputType.text,
-                    name: 'name',
-                    attributes: {'placeholder': 'Your Name'},
-                    events: {'input': (e) => name = (e.target as dynamic).value},
-                  ),
-                ]),
-                div(classes: 'form-group', [
-                  label(htmlFor: 'email', [Component.text('Email')]),
-                  input(
-                    id: 'email',
-                    type: InputType.email,
-                    name: 'email',
-                    attributes: {'placeholder': 'your@email.com'},
-                    events: {'input': (e) => email = (e.target as dynamic).value},
-                  ),
-                ]),
-                div(classes: 'form-group', [
-                  label(htmlFor: 'message', [Component.text('Message')]),
-                  textarea(
-                    id: 'message',
-                    name: 'message',
-                    attributes: {'placeholder': 'Your Message', 'rows': '5'},
-                    events: {'input': (e) => message = (e.target as dynamic).value},
-                    [],
-                  ),
-                ]),
-
-                if (contactState.isLoading)
-                  div(classes: 'loading', [Component.text('Sending...')])
-                else
-                  PrimaryButton(
-                    label: 'Send Message',
-                    onClick: () {
-                      notifier.submitForm(ContactForm(name: name, email: email, message: message));
-                    },
-                  ),
-              ]);
             },
       ),
     ]);

@@ -3,13 +3,11 @@ import '../domain/models/project.dart';
 import '../domain/repositories/project_repository.dart';
 import '../infrastructure/repositories/project_repository_impl.dart';
 
-// Repository Provider
-final projectRepositoryProvider = Provider<ProjectRepository>((ref) {
+final projectRepositoryProvider = Provider<ProjectRepositoryImpl>((ref) {
   return ProjectRepositoryImpl();
 });
 
-// Projects Future Provider
-final projectsProvider = FutureProvider<List<Project>>((ref) async {
+final projectsProvider = Provider<List<Project>>((ref) {
   final repository = ref.watch(projectRepositoryProvider);
-  return repository.getProjects();
+  return repository.getProjectsSync();
 });
