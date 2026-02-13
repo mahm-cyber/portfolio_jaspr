@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import '../components/buttons.dart';
 import '../constants/theme.dart';
+import '../constants/config.dart';
 
 class WhyHireMeSection extends StatelessComponent {
   const WhyHireMeSection({super.key});
@@ -11,8 +12,8 @@ class WhyHireMeSection extends StatelessComponent {
     return section(classes: 'why-hire-me', [
       div(classes: 'hire-container', [
         div(classes: 'hire-image', [
-           // Placeholder for "Woman pointing image"
-           img(src: 'images/profile.png', alt: 'Why Hire Me', classes: 'hire-img-placeholder'), 
+          // Placeholder for "Woman pointing image"
+          img(src: 'images/profile.png', alt: 'Why Hire Me', classes: 'hire-img-placeholder'),
         ]),
         div(classes: 'hire-content', [
           h2([
@@ -20,7 +21,11 @@ class WhyHireMeSection extends StatelessComponent {
             span(classes: 'highlight', [text('Hire me')]),
             text('?'),
           ]),
-          p([text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.')]),
+          p([
+            text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.',
+            ),
+          ]),
           div(classes: 'hire-stats', [
             div(classes: 'stat-item', [
               span(classes: 'stat-num', [text('450+')]),
@@ -31,7 +36,7 @@ class WhyHireMeSection extends StatelessComponent {
               span(classes: 'stat-label', [text('Project Completed')]),
             ]),
           ]),
-          PrimaryButton(label: 'Hire me', href: '/contact', isOutlined: true),
+          PrimaryButton(label: 'Hire me', href: '$basePath/contact', isOutlined: true),
         ]),
       ]),
     ]);
@@ -106,7 +111,7 @@ class WhyHireMeSection extends StatelessComponent {
         fontSize: 14.px,
         color: AppColors.textSecondary,
       ),
-      
+
       // Responsive
       css('@media (max-width: 900px)', [
         css('.hire-container').styles(

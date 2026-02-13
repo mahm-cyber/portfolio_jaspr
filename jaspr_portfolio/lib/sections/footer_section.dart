@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import '../constants/theme.dart';
+import '../constants/config.dart';
 
 class FooterSection extends StatelessComponent {
   const FooterSection({super.key});
@@ -11,7 +12,11 @@ class FooterSection extends StatelessComponent {
       div(classes: 'footer-content', [
         div(classes: 'footer-brand', [
           h3([text('3CREA')]),
-          p([text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.')]),
+          p([
+            text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.',
+            ),
+          ]),
           div(classes: 'social-icons', [
             a(href: '#', [img(src: 'images/facebook.svg', width: 24, height: 24)]),
             a(href: '#', [img(src: 'images/youtube.svg', width: 24, height: 24)]),
@@ -22,19 +27,19 @@ class FooterSection extends StatelessComponent {
         div(classes: 'footer-nav', [
           div(classes: 'nav-col', [
             h4([text('Quick Links')]),
-            a(href: '/', [text('Home')]),
-            a(href: '/about', [text('About')]),
-            a(href: '/service', [text('Service')]),
-            a(href: '/contact', [text('Contact')]),
+            a(href: '$basePath/', [text('Home')]),
+            a(href: '$basePath/about', [text('About')]),
+            a(href: '$basePath/service', [text('Service')]),
+            a(href: '$basePath/contact', [text('Contact')]),
           ]),
           div(classes: 'nav-col', [
             h4([text('Newsletter')]),
             p([text('Subscribe to our newsletter for latest updates.')]),
             div(classes: 'newsletter-input', [
-               input(type: InputType.email, attributes: {'placeholder': 'Email Address'}),
-               button([
-                 img(src: 'images/send.svg', width: 20, height: 20), // Placeholder
-               ]),
+              input(type: InputType.email, attributes: {'placeholder': 'Email Address'}),
+              button([
+                img(src: 'images/send.svg', width: 20, height: 20), // Placeholder
+              ]),
             ]),
           ]),
         ]),
@@ -92,7 +97,7 @@ class FooterSection extends StatelessComponent {
       css('.social-icons img:hover').styles(
         opacity: 1.0,
       ),
-      
+
       css('.footer-nav').styles(
         display: Display.flex,
         gap: Gap.all(60.px),
@@ -115,7 +120,7 @@ class FooterSection extends StatelessComponent {
         transition: const Transition('color', duration: Duration(milliseconds: 200)),
       ),
       css('a:hover').styles(color: AppColors.primary),
-      
+
       css('.newsletter-input').styles(
         display: Display.flex,
         backgroundColor: AppColors.background,
@@ -142,7 +147,7 @@ class FooterSection extends StatelessComponent {
         alignItems: AlignItems.center,
         cursor: Cursor.pointer,
       ),
-      
+
       css('.footer-bottom').styles(
         width: 100.percent,
         maxWidth: 1200.px,
@@ -159,7 +164,7 @@ class FooterSection extends StatelessComponent {
         display: Display.flex,
         gap: Gap.all(24.px),
       ),
-      
+
       // Responsive
       css('@media (max-width: 768px)', [
         css('.footer-content').styles(flexDirection: FlexDirection.column),

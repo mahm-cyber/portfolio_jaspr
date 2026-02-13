@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'buttons.dart';
 import '../constants/theme.dart';
+import '../constants/config.dart';
 
 class Header extends StatelessComponent {
   const Header({super.key});
@@ -15,29 +16,29 @@ class Header extends StatelessComponent {
         // Home
         CapsuleButton(
           label: 'Home',
-          path: '/',
-          isActive: activePath == '/',
+          path: '$basePath/',
+          isActive: activePath == '$basePath/',
         ),
         // About
         CapsuleButton(
           label: 'About',
-          path: '/about',
-          isActive: activePath == '/about',
-          isOutlined: activePath != '/about',
+          path: '$basePath/about',
+          isActive: activePath == '$basePath/about',
+          isOutlined: activePath != '$basePath/about',
         ),
         // Projects
         CapsuleButton(
           label: 'Projects',
-          path: '/projects',
-          isActive: activePath == '/projects',
-          isOutlined: activePath != '/projects',
+          path: '$basePath/projects',
+          isActive: activePath == '$basePath/projects',
+          isOutlined: activePath != '$basePath/projects',
         ),
         // Contact
         CapsuleButton(
           label: 'Contact',
-          path: '/contact',
-          isActive: activePath == '/contact',
-          isOutlined: activePath != '/contact',
+          path: '$basePath/contact',
+          isActive: activePath == '$basePath/contact',
+          isOutlined: activePath != '$basePath/contact',
         ),
       ]),
     ]);

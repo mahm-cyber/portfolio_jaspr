@@ -3,6 +3,7 @@ import 'package:jaspr/jaspr.dart';
 import '../components/buttons.dart';
 import '../components/service_card.dart';
 import '../constants/theme.dart';
+import '../constants/config.dart';
 import '../sections/experience_section.dart';
 import '../sections/why_hire_me_section.dart';
 import '../sections/portfolio_section.dart';
@@ -32,8 +33,8 @@ class Home extends StatelessComponent {
             text("Jenny’s Exceptional product design ensure our website’s success. Highly Recommended"),
           ]),
           div(classes: 'cta-group', [
-            PrimaryButton(label: 'Portfolio', href: '/projects'),
-            PrimaryButton(label: 'Hire me', href: '/contact', isOutlined: true),
+            PrimaryButton(label: 'Portfolio', href: '$basePath/projects'),
+            PrimaryButton(label: 'Hire me', href: '$basePath/contact', isOutlined: true),
           ]),
         ]),
 
