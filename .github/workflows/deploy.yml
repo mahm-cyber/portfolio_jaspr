@@ -20,6 +20,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: jaspr_portfolio
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,8 +40,6 @@ jobs:
         run: dart pub get
 
       - name: Build Project
-        # Adjust base-href if deploying to a project page (e.g. /repo-name/)
-        # For a user page (username.github.io), remove the --base-href flag or set to /
         run: |
           jaspr build --base-href /portfolio_jaspr/ --verbose
           touch build/jaspr/.nojekyll
@@ -48,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build/jaspr'
+          path: 'jaspr_portfolio/build/jaspr'
 
       - name: Deploy to GitHub Pages
         id: deployment
