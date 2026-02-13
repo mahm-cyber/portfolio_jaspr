@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Project
         run: |
-          jaspr build --base-href /portfolio_jaspr/ --verbose
+          jaspr build --dart-define=BASE_HREF=/portfolio_jaspr/ --verbose
           touch build/jaspr/.nojekyll
 
       - name: Setup Pages
