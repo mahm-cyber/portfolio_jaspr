@@ -38,7 +38,9 @@ jobs:
       - name: Build Project
         # Adjust base-href if deploying to a project page (e.g. /repo-name/)
         # For a user page (username.github.io), remove the --base-href flag or set to /
-        run: jaspr build --verbose
+        run: |
+          jaspr build --base-href /portfolio_jaspr/ --verbose
+          touch build/jaspr/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
