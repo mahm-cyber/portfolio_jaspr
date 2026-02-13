@@ -1,0 +1,86 @@
+Building jaspr for static rendering mode.
+Using server entry point: lib/main.server.dart
+Building web assets...
+[BUILDER] Starting daemon...
+[BUILDER] About to build [web]...
+[BUILDER] 0s jaspr_builder:codec_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:styles_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:clients_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs: 1 no-op; collection|lib/collection.dart
+[BUILDER] 0s jaspr_builder:styles_module on 4006 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs; collection|lib/algorithms.dart
+[BUILDER] 1s jaspr_builder:codec_module on 3950 inputs: 1219 no-op; analyzer|lib/src/generated/element_resolver.dart
+[BUILDER] 1s jaspr_builder:codec_module on 3950 inputs: 2227 no-op; code_builder|lib/code_builder.dart
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs: 3240 no-op; flutter|lib/src/widgets/notification_listener.dart
+[BUILDER] 2s jaspr_builder:styles_module on 4006 inputs: 3417 no-op; spent 1s┬áanalyzing; jaspr|lib/src/dom/styles/properties/all.dart
+[BUILDER] 4s jaspr_builder:client_module on 4009 inputs: 3388 no-op; spent 2s┬áanalyzing; jaspr|lib/src/client/client_binding.dart
+[BUILDER] 11s jaspr_builder:codec_module on 3950 inputs: 3870 no-op; spent 7s┬áanalyzing, 2s┬áresolving, 1s┬áreading; jaspr_builder|lib/src/codec/codec_bundle_builder.dart
+[BUILDER] 0s riverpod_generator on 28 inputs; lib/app.dart
+[BUILDER] riverpod_generator on lib/components/embedded_counter.dart:
+[BUILDER] Running RiverpodGenerator - 1 of 2
+[BUILDER] riverpod_generator on lib/components/embedded_counter.dart:
+[BUILDER] Running JsonGenerator - 2 of 2
+[BUILDER] 8s riverpod_generator on 28 inputs: 5 no-op; spent 6s┬áanalyzing, 1s┬áresolving; lib/components/header.dart
+[BUILDER] riverpod_generator on lib/pages/about.dart:
+[BUILDER] Running RiverpodGenerator - 1 of 2
+[BUILDER] riverpod_generator on lib/pages/about.dart:
+[BUILDER] Running JsonGenerator - 2 of 2
+[BUILDER] riverpod_generator on lib/pages/contact.dart:
+[BUILDER] Running RiverpodGenerator - 1 of 2
+[BUILDER] riverpod_generator on lib/pages/contact.dart:
+[BUILDER] Running JsonGenerator - 2 of 2
+[BUILDER] 10s riverpod_generator on 28 inputs: 16 no-op; spent 8s┬áanalyzing, 1s┬áresolving; lib/pages/home.dart
+[BUILDER] 10s riverpod_generator on 28 inputs: 28 no-op; spent 8s┬áanalyzing, 1s┬áresolving
+[BUILDER] 0s source_gen:combining_builder on 28 inputs; lib/app.dart
+[BUILDER] 0s source_gen:combining_builder on 28 inputs: 28 no-op
+[BUILDER] 11s jaspr_builder:codec_module on 3950 inputs: 28 skipped, 3922 no-op; spent 7s┬áanalyzing, 2s┬áresolving, 1s┬áreading
+[BUILDER] 0s jaspr_builder:codec_bundle on 110 inputs: 110 no-op
+[BUILDER] 0s jaspr_builder:sync_mixins_module on 56 inputs; lib/app.dart
+[BUILDER] 0s jaspr_builder:sync_mixins_module on 56 inputs: 28 skipped, 28 no-op
+[BUILDER] 3s jaspr_builder:styles_module on 4006 inputs: 84 skipped, 17 output, 3905 no-op; spent 2s┬áanalyzing
+[BUILDER] 0s jaspr_builder:styles_bundle on 110 inputs: 1 output, 109 no-op
+[BUILDER] 0s jaspr_builder:imports_module on 112 inputs; lib/app.dart
+[BUILDER] 4s jaspr_builder:imports_module on 112 inputs: 12 skipped, 1 output, 4 no-op; spent 3s┬áanalyzing; lib/components/embedded_counter.g.dart
+[BUILDER] 4s jaspr_builder:imports_module on 112 inputs: 84 skipped, 1 output, 27 no-op; spent 3s┬áanalyzing
+[BUILDER] 0s jaspr_builder:stub on 1 input; lib/$lib$
+[BUILDER] 0s jaspr_builder:stub on 1 input: 1 output
+[BUILDER] 4s jaspr_builder:client_module on 4009 inputs: 85 skipped, 2 output, 3922 no-op; spent 3s┬áanalyzing
+[BUILDER] 0s jaspr_builder:clients_bundle on 110 inputs: 1 output, 109 no-op
+[BUILDER] 0s jaspr_builder:server_options on 1 input; lib/main.server.dart
+[BUILDER] 0s jaspr_builder:server_options on 1 input: 1 output
+[BUILDER] 0s jaspr_builder:import_output on 112 inputs; lib/app.g.imports.json
+[BUILDER] 0s jaspr_builder:import_output on 112 inputs: 111 skipped, 1 output
+[BUILDER] 0s jaspr_builder:client_options on 1 input; lib/main.client.dart
+[BUILDER] 0s jaspr_builder:client_options on 1 input: 1 output
+[BUILDER] 0s jaspr_builder:client_entrypoint on 1 input; lib/main.client.dart
+[BUILDER] 0s jaspr_builder:client_entrypoint on 1 input: 1 output
+[BUILDER] 0s build_web_compilers:entrypoint_marker on 1 input; web/$web$
+[BUILDER] 0s build_web_compilers:entrypoint_marker on 1 input: 1 no-op
+[BUILDER] 0s build_web_compilers:entrypoint on 1 input; web/main.client.dart
+[BUILDER] 1s build_modules:module_library (lazy): 217 skipped, 631 output, 34 no-op; collection|lib/src/priority_queue.dart
+[BUILDER] 2s build_modules:module_library (lazy): 217 skipped, 1525 output, 56 no-op; spent 1s┬ábuilding; analyzer|lib/src/workspace/workspace.dart
+[BUILDER] 3s build_modules:module_library (lazy): 217 skipped, 2145 output, 81 no-op; spent 2s┬ábuilding; flutter|lib/src/rendering/custom_layout.dart
+[BUILDER] 0s build_web_compilers:dart2js_modules (lazy): 70 output; universal_web|lib/web.dart
+[BUILDER] build_web_compilers:entrypoint on web/main.client.dart:
+[BUILDER] Running `dart compile js` with -Djaspr.flags.release=true -O2 -Ddart.vm.product=true -DFLUTTER_WEB_USE_SKWASM=false -DFLUTTER_WEB_USE_SKIA=true --libraries-spec=C:\tools\flutter\bin\cache\flutter_web_sdk\libraries.json --packages=org-dartlang-app:///.dart_tool/package_config.json --multi-root-scheme=org-dartlang-app --multi-root=C:\Users\mahmoud\AppData\Local\Temp\scratch_space27cf33a7\ -oweb/main.client.dart.js org-dartlang-app:///web/main.client.dart
+[BUILDER] build_web_compilers:entrypoint on web/main.client.dart:
+[BUILDER] Compiled 15,372,025 input bytes (10,371,031 characters source) to 214,804 characters JavaScript in 6.82 seconds
+[BUILDER] 8s build_web_compilers:entrypoint on 1 input: 1 output; spent 8s┬ábuilding
+[BUILDER] Built with build_runner/jit in 59s; wrote 2745 outputs.
+Completed building web assets.
+Generating static site...
+[SERVER] Running server app...
+[SERVER] [INFO] Running server in release mode
+[SERVER] Serving at http://0.0.0.0:8082
+Generating routes...
+Generating route "/" (1/1)...
+Generating route "/about" (2/4)...
+Generating route "/projects" (3/4)...
+Generating route "/contact" (4/4)...
+[SERVER] 
+[ERROR] Server process failed unexpectedly.
+[FLUTTER] Compiling .dart_tool/jaspr/flutter_target.dart for the Web...         8.7s
+[FLUTTER] ΓêÜ Built build\flutter
+[FLUTTER] 
+Completed building project to /build/jaspr.

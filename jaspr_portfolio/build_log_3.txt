@@ -1,0 +1,19 @@
+Building jaspr for static rendering mode.
+Using server entry point: lib/main.server.dart
+Building web assets...
+[BUILDER] Starting daemon...
+[BUILDER] About to build [web]...
+[BUILDER] 0s jaspr_builder:codec_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:styles_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:clients_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs: 1 no-op; collection|lib/collection.dart
+[BUILDER] 0s jaspr_builder:styles_module on 4006 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs; collection|lib/algorithms.dart
+[BUILDER] 1s jaspr_builder:codec_module on 3950 inputs: 1179 no-op; analyzer|lib/src/error/error_handler_verifier.dart
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs: 2411 no-op; clock|lib/clock.dart
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs: 3213 no-op; flutter|lib/src/widgets/gesture_detector.dart
+[BUILDER] 3s jaspr_builder:styles_module on 4006 inputs: 3417 no-op; spent 3s┬áanalyzing; jaspr|lib/src/dom/styles/properties/all.dart
+[BUILDER] 5s jaspr_builder:client_module on 4009 inputs: 3388 no-op; spent 4s┬áanalyzing; jaspr|lib/src/client/client_binding.dart
+[BUILDER] 11s jaspr_builder:codec_module on 3950 inputs: 3870 no-op; spent 7s┬áanalyzing, 2s┬áresolving, 1s┬áreading; jaspr_builder|lib/src/codec/codec_bundle_builder.dart
+[BUILDER] 0s riverpod_generator on 28 inputs; lib/app.dart

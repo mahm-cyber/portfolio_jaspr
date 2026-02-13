@@ -1,0 +1,70 @@
+Building jaspr for static rendering mode.
+Using server entry point: lib/main.server.dart
+Building web assets...
+[BUILDER] 0s compiling builders/jit
+[BUILDER] 1s compiling builders/jit
+[BUILDER] 3s compiling builders/jit
+[BUILDER] 4s compiling builders/jit
+[BUILDER] 5s compiling builders/jit
+[BUILDER] 6s compiling builders/jit
+[BUILDER] 7s compiling builders/jit
+[BUILDER] 8s compiling builders/jit
+[BUILDER] 9s compiling builders/jit
+[BUILDER] 10s compiling builders/jit
+[BUILDER] 11s compiling builders/jit
+[BUILDER] Starting daemon...
+[BUILDER] About to build [web]...
+[BUILDER] 0s jaspr_builder:codec_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:styles_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:clients_bundle on 110 inputs; $sdk|lib/$lib$
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs: 1 skipped; collection|lib/collection.dart
+[BUILDER] 0s jaspr_builder:styles_module on 4006 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs; collection|lib/algorithms.dart
+[BUILDER] 0s riverpod_generator on 28 inputs; lib/app.dart
+[BUILDER] 0s riverpod_generator on 28 inputs: 28 skipped
+[BUILDER] 0s source_gen:combining_builder on 28 inputs; lib/app.dart
+[BUILDER] 0s source_gen:combining_builder on 28 inputs: 28 skipped
+[BUILDER] 0s jaspr_builder:codec_module on 3950 inputs: 3950 skipped
+[BUILDER] 0s jaspr_builder:codec_bundle on 110 inputs: 110 skipped
+[BUILDER] 0s jaspr_builder:sync_mixins_module on 56 inputs; lib/app.dart
+[BUILDER] 0s jaspr_builder:sync_mixins_module on 56 inputs: 56 skipped
+[BUILDER] 0s jaspr_builder:styles_module on 4006 inputs: 4006 skipped
+[BUILDER] 0s jaspr_builder:styles_bundle on 110 inputs: 110 skipped
+[BUILDER] 0s jaspr_builder:imports_module on 112 inputs; lib/app.dart
+[BUILDER] 0s jaspr_builder:imports_module on 112 inputs: 112 skipped
+[BUILDER] 0s jaspr_builder:stub on 1 input; lib/$lib$
+[BUILDER] 0s jaspr_builder:stub on 1 input: 1 skipped
+[BUILDER] 0s jaspr_builder:client_module on 4009 inputs: 4009 skipped
+[BUILDER] 0s jaspr_builder:clients_bundle on 110 inputs: 110 skipped
+[BUILDER] 0s jaspr_builder:server_options on 1 input; lib/main.server.dart
+[BUILDER] 0s jaspr_builder:server_options on 1 input: 1 skipped
+[BUILDER] 0s jaspr_builder:import_output on 112 inputs; lib/app.g.imports.json
+[BUILDER] 0s jaspr_builder:import_output on 112 inputs: 112 skipped
+[BUILDER] 0s jaspr_builder:client_options on 1 input; lib/main.client.dart
+[BUILDER] 0s jaspr_builder:client_options on 1 input: 1 skipped
+[BUILDER] 0s jaspr_builder:client_entrypoint on 1 input; lib/main.client.dart
+[BUILDER] 0s jaspr_builder:client_entrypoint on 1 input: 1 skipped
+[BUILDER] 0s build_web_compilers:entrypoint_marker on 1 input; web/$web$
+[BUILDER] 0s build_web_compilers:entrypoint_marker on 1 input: 1 skipped
+[BUILDER] 0s build_web_compilers:entrypoint on 1 input; web/main.client.dart
+[BUILDER] 0s build_modules:module_library (lazy): 318 skipped; pub_semver|lib/src/version.dart
+[BUILDER] 0s build_web_compilers:entrypoint on 1 input: 1 skipped
+[BUILDER] [ERROR] Unable to create merged directory build/jaspr. Choose a different directory or delete the contents of that directory.
+[BUILDER] Failed to build with build_runner/jit in 21s; wrote 0 outputs.
+[ERROR] FailureType: 73
+Generating static site...
+[SERVER] Running server app...
+[SERVER] [INFO] Running server in release mode
+[SERVER] Serving at http://0.0.0.0:8082
+Generating routes...
+Generating route "/" (1/1)...
+Generating route "/about" (2/4)...
+Generating route "/projects" (3/4)...
+Generating route "/contact" (4/4)...
+[SERVER] 
+[FLUTTER] [ERROR] This project is not configured for the web.
+[FLUTTER] [ERROR] To configure this project for the web, run flutter create . --platforms web
+[FLUTTER] 
+[ERROR] Server process failed unexpectedly.
+Shutting down...
