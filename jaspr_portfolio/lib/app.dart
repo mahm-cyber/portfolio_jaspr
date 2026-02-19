@@ -26,7 +26,7 @@ class App extends StatelessComponent {
       const Header(),
       Router(
         routes: [
-          Route(path: '$basePath/', title: 'Home', builder: (context, state) => const Home()),
+          Route(path: basePath.isEmpty ? '/' : basePath, title: 'Home', builder: (context, state) => const Home()),
           Route(path: '$basePath/about', title: 'About', builder: (context, state) => const About()),
           Route(path: '$basePath/projects', title: 'Projects', builder: (context, state) => const Projects()),
           Route(path: '$basePath/contact', title: 'Contact', builder: (context, state) => const Contact()),
