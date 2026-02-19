@@ -8,7 +8,6 @@ import 'pages/home.dart';
 import 'pages/projects.dart';
 import 'pages/contact.dart';
 import 'constants/theme.dart';
-import 'constants/config.dart';
 
 // The main component of your application.
 //
@@ -26,10 +25,10 @@ class App extends StatelessComponent {
       const Header(),
       Router(
         routes: [
-          Route(path: basePath.isEmpty ? '/' : basePath, title: 'Home', builder: (context, state) => const Home()),
-          Route(path: '$basePath/about', title: 'About', builder: (context, state) => const About()),
-          Route(path: '$basePath/projects', title: 'Projects', builder: (context, state) => const Projects()),
-          Route(path: '$basePath/contact', title: 'Contact', builder: (context, state) => const Contact()),
+          Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
+          Route(path: '/about', title: 'About', builder: (context, state) => const About()),
+          Route(path: '/projects', title: 'Projects', builder: (context, state) => const Projects()),
+          Route(path: '/contact', title: 'Contact', builder: (context, state) => const Contact()),
         ],
       ),
     ]);
