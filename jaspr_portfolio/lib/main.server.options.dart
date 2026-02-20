@@ -7,7 +7,6 @@
 import 'package:jaspr/server.dart';
 import 'package:jaspr_portfolio/components/buttons.dart' as _buttons;
 import 'package:jaspr_portfolio/components/cards.dart' as _cards;
-import 'package:jaspr_portfolio/components/header.dart' as _header;
 import 'package:jaspr_portfolio/components/service_card.dart' as _service_card;
 import 'package:jaspr_portfolio/pages/about.dart' as _about;
 import 'package:jaspr_portfolio/pages/contact.dart' as _contact;
@@ -55,7 +54,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._buttons.PrimaryButton.styles,
     ..._cards.ProjectCard.styles,
     ..._cards.StatsCard.styles,
-    ..._header.Header.styles,
     ..._service_card.ServiceCard.styles,
     ..._about.About.styles,
     ..._contact.Contact.styles,

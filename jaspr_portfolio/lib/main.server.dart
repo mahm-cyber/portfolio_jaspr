@@ -52,6 +52,8 @@ void main() {
           // The generated flutter manifest and bootstrap script.
           link(rel: 'manifest', href: 'manifest.json'),
           script(src: "flutter_bootstrap.js", async: true),
+          // Tailwind CSS generated styles
+          link(href: 'styles.css', rel: 'stylesheet'),
         ],
         body: App(),
       ),

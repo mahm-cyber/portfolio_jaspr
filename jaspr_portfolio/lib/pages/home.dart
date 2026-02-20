@@ -1,6 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import '../components/buttons.dart';
+
 import '../components/service_card.dart';
 import '../constants/theme.dart';
 import '../constants/config.dart';
@@ -18,70 +18,172 @@ class Home extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'home-page', [
-      // Hero Section
-      section(classes: 'hero', [
-        div(classes: 'hero-content', [
-          div(classes: 'greeting-badge', [
-            text('Hello!'),
-          ]),
-          h1([
-            text("I'm Jenny,"),
-            br(),
-            text("Product Designer"),
-          ]),
-          p(classes: 'hero-description', [
-            text("Jenny’s Exceptional product design ensure our website’s success. Highly Recommended"),
-          ]),
-          div(classes: 'cta-group', [
-            PrimaryButton(label: 'Portfolio', href: '$basePath/projects'),
-            PrimaryButton(label: 'Hire me', href: '$basePath/contact', isOutlined: true),
-          ]),
-        ]),
+      // Hero Section — Centered layout matching Figma
+      section(
+        classes: 'relative flex flex-col items-center text-center pt-8 pb-0 overflow-hidden',
+        [
+          // Decorative accent lines above greeting
+          img(
+            src: 'images/rays.svg',
+            classes: 'w-6 h-6 mb-1',
+            alt: '',
+          ),
 
-        div(classes: 'hero-visual', [
-          // Profile Image with Decorations
-          div(classes: 'profile-container', [
-            img(src: 'images/profile.png', classes: 'profile-image', alt: 'Jenny Profile'),
-            img(src: 'images/arrow.svg', classes: 'decoration-arrow', alt: ''),
-            img(src: 'images/decoration.svg', classes: 'decoration-shape', alt: ''),
-          ]),
+          // Hello badge
+          div(
+            classes: 'inline-flex px-6 py-2 rounded-full border border-[#404040] text-white font-semibold text-sm mb-3',
+            [text('Hello!')],
+          ),
 
-          // Floating Stats Card
-          div(classes: 'floating-card stats-card', [
-            div(classes: 'stats-content', [
-              span(classes: 'stats-number', [text('10 Years')]),
-              span(classes: 'stats-label', [text('Experience')]),
-            ]),
-          ]),
+          // Main heading
+          h1(
+            classes: 'text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight mb-2',
+            [
+              text("I'm "),
+              span(classes: 'text-[#FD853A]', [text('Mahmoud')]),
+              text(','),
+              br(),
+              text('Software Engineer'),
+            ],
+          ),
 
-          // Floating Testimonial Card (Simulated based on design)
-          div(classes: 'floating-card testimonial-card', [
-            img(src: 'images/quote.svg', classes: 'quote-icon', alt: 'Quote'),
-            div([
-              div(classes: 'stars', [
-                // 5 stars simulation
-                for (var i = 0; i < 5; i++) img(src: 'images/star.svg', width: 12, height: 12),
-              ]),
-              p([text("Jenny’s Exceptional product design...")]),
-            ]),
-          ]),
-        ]),
-      ]),
+          // Hero visual container — arch + image + floating cards
+          div(
+            classes: 'relative w-full max-w-3xl mt-4 flex flex-col items-center',
+            [
+              // Orange arch background — shorter so profile extends above it
+              div(
+                classes:
+                    'absolute bottom-0 left-1/2 -translate-x-1/2 w-[440px] h-[400px] bg-[#FD853A] rounded-t-[220px]',
+                [],
+              ),
 
-      // Services Section
-      section(classes: 'services', [
+              // Profile image — head extends above arch
+              img(
+                src: 'images/mahmoud_profile.png',
+                classes: 'relative z-10 w-[320px] h-auto object-contain',
+                alt: 'Mahmoud Atef',
+              ),
+
+              // Decorative accent lines (top-right of arch)
+              img(
+                src: 'images/accent_lines.svg',
+                classes: 'absolute top-4 right-[15%] w-10 h-10 z-20',
+                alt: '',
+              ),
+
+              // Floating Testimonial Card (left side)
+              div(
+                classes:
+                    'absolute left-0 top-[40%] z-20 bg-[#262626] border border-[#404040] rounded-2xl p-4 max-w-[200px] shadow-xl',
+                [
+                  img(
+                    src: 'images/quote.svg',
+                    classes: 'w-6 h-6 mb-2',
+                    alt: 'Quote',
+                  ),
+                  p(
+                    classes: 'text-[#9CA3AF] text-xs leading-relaxed',
+                    [
+                      text(
+                        "Mahmoud's exceptional software engineering ensures our project's success. Highly Recommended",
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+
+              // Floating Stats Card (right side)
+              div(
+                classes:
+                    'absolute right-0 top-[30%] z-20 bg-[#262626] border border-[#404040] rounded-2xl p-4 shadow-xl',
+                [
+                  div(classes: 'flex gap-1 mb-1', [
+                    for (var i = 0; i < 5; i++)
+                      img(
+                        src: 'images/star_orange.svg',
+                        classes: 'w-4 h-4',
+                      ),
+                  ]),
+                  span(
+                    classes: 'text-[#FD853A] font-bold text-lg',
+                    [text('10 Years')],
+                  ),
+                  br(),
+                  span(
+                    classes: 'text-[#9CA3AF] text-sm',
+                    [text('Experience')],
+                  ),
+                ],
+              ),
+
+              // Decorative accent lines (bottom-left)
+              img(
+                src: 'images/accent_lines.svg',
+                classes: 'absolute bottom-20 left-[15%] w-10 h-10 z-20 rotate-180',
+                alt: '',
+              ),
+
+              // CTA group — dark pill overlapping the bottom of the arch
+              div(
+                classes:
+                    'relative z-30 -mt-12 flex items-center gap-3 bg-[#1F1F1F] rounded-full px-3 py-2 border border-[#333333] shadow-lg',
+                [
+                  a(
+                    href: '$basePath/projects',
+                    classes:
+                        'inline-flex items-center gap-2 bg-[#FD853A] text-[#171717] font-bold px-8 py-3 rounded-full no-underline hover:scale-105 transition-transform',
+                    [text('Portfolio')],
+                  ),
+                  a(
+                    href: '$basePath/contact',
+                    classes:
+                        'inline-flex items-center text-white font-medium px-8 py-3 rounded-full no-underline hover:scale-105 transition-transform',
+                    [text('Hire me')],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+
+      // Services Section — Matching Figma design
+      section(classes: 'services-section', [
+        // Decoration overlay (3D shapes)
+        img(
+          src: 'images/services_decoration.svg',
+          classes: 'services-decoration',
+          alt: '',
+        ),
+
+        // Header row: title left, description right
         div(classes: 'services-header', [
-          h2([text('My Services')]),
-          p([
+          h2(classes: 'services-title', [
+            text('My '),
+            span(classes: 'text-accent', [text('Services')]),
+          ]),
+          p(classes: 'services-desc', [
             text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales',
             ),
           ]),
         ]),
-        div(classes: 'services-grid', [
-          ServiceCard(title: 'UI/ UX Design', imageUrl: 'images/service_ui_ux.png'),
-          ServiceCard(title: 'Web Design', imageUrl: 'images/service_web_design.png'),
-          ServiceCard(title: 'Landing Page', imageUrl: 'images/service_landing_page.png'),
+
+        // Cards row
+        div(classes: 'services-cards', [
+          div(classes: 'services-cards-row', [
+            ServiceCard(title: 'UI/ UX Design', imageUrl: 'images/service_ui_ux_img.png'),
+            ServiceCard(title: 'Web Design', imageUrl: 'images/service_web_design_img.png'),
+            ServiceCard(title: 'Landing Page', imageUrl: 'images/service_landing_page_img.png'),
+          ]),
+          // Pagination dots
+          div(classes: 'services-dots', [
+            div(classes: 'dot active', []),
+            div(classes: 'dot', []),
+            div(classes: 'dot', []),
+            div(classes: 'dot', []),
+          ]),
         ]),
       ]),
 
@@ -125,130 +227,7 @@ class Home extends StatelessComponent {
         flexDirection: FlexDirection.column,
         raw: {'overflow-x': 'hidden'},
       ),
-      css('.hero', [
-        css('&').styles(
-          display: Display.grid,
-          raw: {'grid-template-columns': '1fr 1fr'}, // 2 Columns
-          gap: Gap.all(40.px),
-          alignItems: AlignItems.center,
-          minHeight: 80.vh,
-        ),
-        css('@media (max-width: 900px)', [
-          css('&').styles(
-            display: Display.flex,
-            flexDirection: FlexDirection.columnReverse,
-            textAlign: TextAlign.center,
-            padding: Padding.only(top: 40.px),
-          ),
-        ]),
-      ]),
-      css('.hero-content', [
-        css('&').styles(
-          display: Display.flex,
-          flexDirection: FlexDirection.column,
-          justifyContent: JustifyContent.center,
-          gap: Gap.all(24.px),
-          alignItems: AlignItems.start,
-        ),
-        css('@media (max-width: 900px)', [
-          css('&').styles(alignItems: AlignItems.center),
-        ]),
-      ]),
-      css('.greeting-badge').styles(
-        padding: Padding.symmetric(horizontal: 24.px, vertical: 12.px),
-        radius: BorderRadius.circular(30.px),
-        border: Border.all(color: AppColors.secondary, width: 1.px),
-        color: AppColors.textPrimary,
-        fontWeight: FontWeight.w600,
-        backgroundColor: Colors.transparent,
-      ),
-      css('h1').styles(
-        color: AppColors.textPrimary,
-        fontSize: 64.px,
-        fontWeight: FontWeight.bold,
-        lineHeight: 1.1.em,
-        raw: {'letter-spacing': '-0.02em'},
-      ),
-      css('.hero-description').styles(
-        color: AppColors.textSecondary,
-        fontSize: 18.px,
-        maxWidth: 400.px,
-        lineHeight: 1.6.em,
-      ),
-      css('.cta-group').styles(
-        display: Display.flex,
-        gap: Gap.all(16.px),
-        margin: Margin.only(top: 20.px),
-      ),
-
-      // Visual Section
-      css('.hero-visual').styles(
-        position: Position.relative(),
-        width: 100.percent,
-        height: 600.px,
-        display: Display.flex,
-        justifyContent: JustifyContent.center,
-        alignItems: AlignItems.center,
-      ),
-      css('.profile-container').styles(
-        position: Position.relative(),
-        width: 450.px,
-        height: 550.px,
-      ),
-      css('.profile-image').styles(
-        width: 100.percent,
-        height: 100.percent,
-        radius: BorderRadius.circular(200.px), // Pill shape / Oval
-        border: Border.all(color: AppColors.surface, width: 8.px),
-        raw: {'object-fit': 'cover'},
-      ),
-      css('.decoration-arrow').styles(
-        position: Position.absolute(top: 0.px, right: (-40).px),
-        width: 60.px,
-      ),
-      css('.decoration-shape').styles(
-        position: Position.absolute(bottom: 40.px, left: (-40).px),
-        width: 80.px,
-      ),
-
-      // Floating Cards
-      css('.floating-card').styles(
-        position: Position.absolute(),
-        backgroundColor: AppColors.surface, // Fallback
-        padding: Padding.all(16.px),
-        radius: BorderRadius.circular(20.px),
-        border: Border.all(color: AppColors.secondary, width: 1.px),
-        shadow: BoxShadow(color: Colors.black, blur: 20.px, spread: 0.px, offsetX: 0.px, offsetY: 10.px),
-        raw: {'backdrop-filter': 'blur(10px)'},
-      ),
-      css('.stats-card').styles(
-        raw: {'top': '100px', 'left': '0px'},
-        zIndex: ZIndex(10),
-      ),
-      css('.stats-content').styles(
-        display: Display.flex,
-        flexDirection: FlexDirection.column,
-        alignItems: AlignItems.center,
-      ),
-      css('.stats-number').styles(
-        fontSize: 24.px,
-        fontWeight: FontWeight.bold,
-        color: AppColors.primary,
-      ),
-      css('.stats-label').styles(
-        fontSize: 14.px,
-        color: AppColors.textSecondary,
-      ),
-      css('.testimonial-card').styles(
-        raw: {'bottom': '80px', 'right': '0px'},
-        maxWidth: 200.px,
-        zIndex: ZIndex(10),
-      ),
-      css('.quote-icon').styles(
-        width: 24.px,
-        height: 24.px,
-        margin: Margin.only(bottom: 8.px),
-      ),
+      // Hero styles are now handled by Tailwind classes
 
       // Footer
       css('.home-footer').styles(
@@ -271,35 +250,117 @@ class Home extends StatelessComponent {
       ),
 
       // Services Section Styles
-      css('.services').styles(
+      css('.services-section').styles(
+        position: Position.relative(),
         display: Display.flex,
         flexDirection: FlexDirection.column,
-        padding: Padding.symmetric(vertical: 60.px),
+        alignItems: AlignItems.center,
         width: 100.percent,
-        raw: {'gap': '40px'},
+        radius: BorderRadius.circular(50.px),
+        overflow: Overflow.hidden,
+        raw: {
+          'gap': '96px',
+          'padding': '116px 71px',
+          'background-image': 'url(images/services_bg.png)',
+          'background-size': 'cover',
+          'background-position': 'center',
+          'background-repeat': 'no-repeat',
+          'background-color': '#171717',
+        },
       ),
+      // Decoration overlay
+      css('.services-decoration').styles(
+        position: Position.absolute(top: 50.px, left: 0.px),
+        width: 100.percent,
+        raw: {
+          'height': 'auto',
+          'pointer-events': 'none',
+          'z-index': '1',
+        },
+      ),
+      // Header
       css('.services-header').styles(
         display: Display.flex,
         justifyContent: JustifyContent.spaceBetween,
         alignItems: AlignItems.end,
+        width: 100.percent,
         flexWrap: FlexWrap.wrap,
-        raw: {'gap': '20px'},
+        raw: {
+          'gap': '40px',
+          'z-index': '2',
+          'position': 'relative',
+        },
       ),
-      css('.services-header h2').styles(
+      css('.services-title').styles(
         fontSize: 48.px,
         color: AppColors.textPrimary,
         margin: Margin.zero,
+        raw: {
+          'font-family': 'Vast Shadow, Plus Jakarta Sans, serif',
+          'font-weight': '400',
+          'line-height': '1em',
+          'letter-spacing': '-1.5%',
+          'white-space': 'nowrap',
+        },
       ),
-      css('.services-header p').styles(
-        maxWidth: 500.px,
-        color: AppColors.textSecondary,
-        fontSize: 18.px,
-        lineHeight: 1.5.em,
+      css('.text-accent').styles(
+        color: AppColors.primary,
+      ),
+      css('.services-desc').styles(
+        maxWidth: 576.px,
+        color: AppColors.textPrimary,
+        fontSize: 20.px,
         margin: Margin.zero,
+        raw: {
+          'font-family': 'Lufga, Plus Jakarta Sans, sans-serif',
+          'font-weight': '500',
+          'line-height': '1.3em',
+          'letter-spacing': '-1.5%',
+        },
       ),
-      css('.services-grid').styles(
-        display: Display.grid,
-        raw: {'grid-template-columns': 'repeat(auto-fit, minmax(300px, 1fr))', 'gap': '24px'},
+      // Cards container
+      css('.services-cards').styles(
+        display: Display.flex,
+        flexDirection: FlexDirection.column,
+        alignItems: AlignItems.center,
+        width: 100.percent,
+        raw: {
+          'gap': '39px',
+          'z-index': '2',
+          'position': 'relative',
+        },
+      ),
+      css('.services-cards-row').styles(
+        display: Display.flex,
+        justifyContent: JustifyContent.spaceBetween,
+        width: 100.percent,
+        raw: {
+          'gap': '45px',
+        },
+      ),
+      // Pagination dots
+      css('.services-dots').styles(
+        display: Display.flex,
+        alignItems: AlignItems.center,
+        raw: {
+          'gap': '12px',
+        },
+      ),
+      css('.services-dots .dot').styles(
+        width: 15.px,
+        height: 15.px,
+        radius: BorderRadius.circular(8.px),
+        raw: {
+          'background': '#E4E7EC',
+        },
+      ),
+      css('.services-dots .dot.active').styles(
+        width: 60.px,
+        height: 15.px,
+        radius: BorderRadius.circular(8.px),
+        raw: {
+          'background': '#FD853A',
+        },
       ),
     ]),
   ];

@@ -21,6 +21,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   jaspr_builder: ^0.22.2
+  jaspr_tailwind: ^0.3.6
   jaspr_test: ^0.22.2
   riverpod_generator: ^3.0.0
 

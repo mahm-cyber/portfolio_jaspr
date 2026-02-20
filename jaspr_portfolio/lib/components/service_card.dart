@@ -15,16 +15,24 @@ class ServiceCard extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'service-card', [
-      // Inner container for the glossy effect
-      div(classes: 'service-inner', [
-        div(classes: 'service-image', [
-          img(src: imageUrl, alt: title),
-        ]),
-        div(classes: 'service-footer', [
-          h3([text(title)]),
-          div(classes: 'service-arrow', [
-            img(src: 'images/arrow.svg', alt: 'Go'),
+      // Main card frame with glassmorphism
+      div(classes: 'service-card-glass', [
+        // Inner content area
+        div(classes: 'service-card-content', [
+          // Title row
+          div(classes: 'service-card-title', [
+            h3([text(title)]),
           ]),
+          // Separator line
+          div(classes: 'service-card-separator', []),
+          // Image area
+          div(classes: 'service-card-image', [
+            img(src: imageUrl, alt: title),
+          ]),
+        ]),
+        // Arrow button (bottom-right, absolute)
+        div(classes: 'service-card-arrow', [
+          img(src: 'images/arrow.svg', alt: 'Go', classes: 'arrow-icon'),
         ]),
       ]),
     ]);
@@ -35,60 +43,97 @@ class ServiceCard extends StatelessComponent {
     css('.service-card', [
       css('&').styles(
         position: Position.relative(),
-        radius: BorderRadius.circular(40.px),
-        overflow: Overflow.hidden,
         cursor: Cursor.pointer,
         transition: const Transition('transform', duration: Duration(milliseconds: 300)),
-        backgroundColor: AppColors.surface,
+        raw: {
+          'flex': '1 1 0',
+          'min-width': '300px',
+        },
       ),
       css('&:hover').styles(
         transform: Transform.scale(1.02),
       ),
-      css('.service-inner').styles(
+
+      // Glassmorphism card
+      css('.service-card-glass').styles(
+        position: Position.relative(),
         display: Display.flex,
         flexDirection: FlexDirection.column,
-        padding: Padding.all(20.px),
-        height: 100.percent,
-        raw: {'gap': '20px'},
-      ),
-      css('.service-image').styles(
-        width: 100.percent,
-        height: 300.px, // Adjust based on design
-        radius: BorderRadius.circular(30.px),
+        radius: BorderRadius.circular(37.px),
         overflow: Overflow.hidden,
-        backgroundColor: Colors.black, // Placeholder background
+        raw: {
+          'background': 'rgba(104, 104, 104, 0.2)',
+          'backdrop-filter': 'blur(15px)',
+          '-webkit-backdrop-filter': 'blur(15px)',
+          'border': '2px solid rgba(255, 255, 255, 0.1)',
+        },
       ),
-      css('.service-image img').styles(
+
+      // Content area
+      css('.service-card-content').styles(
+        display: Display.flex,
+        flexDirection: FlexDirection.column,
+        width: 100.percent,
+      ),
+
+      // Title
+      css('.service-card-title').styles(
+        padding: Padding.symmetric(horizontal: 37.px, vertical: 20.px),
+      ),
+      css('.service-card-title h3').styles(
+        color: AppColors.textPrimary,
+        fontSize: 32.px,
+        fontWeight: FontWeight.w500,
+        margin: Margin.zero,
+        raw: {
+          'font-family': 'Lufga, Plus Jakarta Sans, sans-serif',
+          'letter-spacing': '-1.5%',
+        },
+      ),
+
+      // Separator
+      css('.service-card-separator').styles(
+        width: 100.percent,
+        height: 2.px,
+        raw: {
+          'background': 'rgba(249, 250, 251, 0.3)',
+        },
+      ),
+
+      // Image
+      css('.service-card-image').styles(
+        width: 100.percent,
+        raw: {
+          'aspect-ratio': '416 / 307',
+        },
+        overflow: Overflow.hidden,
+      ),
+      css('.service-card-image img').styles(
         width: 100.percent,
         height: 100.percent,
         raw: {'object-fit': 'cover'},
       ),
-      css('.service-footer').styles(
-        display: Display.flex,
-        justifyContent: JustifyContent.spaceBetween,
-        alignItems: AlignItems.center,
-        padding: Padding.symmetric(horizontal: 10.px, vertical: 10.px),
-      ),
-      css('h3').styles(
-        color: AppColors.textPrimary,
-        fontSize: 24.px,
-        fontWeight: FontWeight.w500,
-        margin: Margin.zero,
-      ),
-      css('.service-arrow').styles(
-        width: 50.px,
-        height: 50.px,
-        radius: BorderRadius.circular(25.px),
-        backgroundColor: AppColors.primary, // Using orange accent
+
+      // Arrow button
+      css('.service-card-arrow').styles(
+        position: Position.absolute(bottom: 0.px, right: 0.px),
+        width: 114.px,
+        height: 114.px,
         display: Display.flex,
         justifyContent: JustifyContent.center,
         alignItems: AlignItems.center,
-        transform: Transform.rotate(45.deg), // Arrow usually points up-right
+        radius: BorderRadius.circular(57.px),
+        raw: {
+          'background': '#1D2939',
+        },
       ),
-      css('.service-arrow img').styles(
-        width: 24.px,
-        height: 24.px,
-        raw: {'filter': 'brightness(0) invert(1)'}, // Make arrow white
+      css('.arrow-icon').styles(
+        width: 30.px,
+        height: 30.px,
+        raw: {
+          'filter': 'brightness(0) invert(1)',
+          'transform': 'rotate(-45deg)',
+        },
       ),
     ]),
   ];

@@ -60,7 +60,9 @@ class AppTextStyles {
 
 // Global styles
 List<StyleRule> get globalStyles => [
-  const StyleRule.import('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap'),
+  const StyleRule.import(
+    'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Vast+Shadow&display=swap',
+  ),
   StyleRule(
     selector: const Selector.list([Selector.tag('body'), Selector.tag('html')]),
     styles: Styles.combine([
