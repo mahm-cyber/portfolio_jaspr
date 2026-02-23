@@ -2,7 +2,7 @@ name: Deploy Jaspr to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [ main ] # أو master لو كنت بتستخدمه
   workflow_dispatch:
 
 permissions:
@@ -20,40 +20,29 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: jaspr_portfolio
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-
-      - name: Setup Jaspr
-        run: |
-          dart pub global activate jaspr_cli
-          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+      - name: Install Jaspr CLI
+        run: dart pub global activate jaspr_cli
       - name: Install Dependencies
-        run: dart pub get
-
-      - name: Build Project
-        run: |
-          jaspr build --dart-define=BASE_HREF=/portfolio_jaspr/ --verbose
-          touch build/jaspr/.nojekyll
-
+        run: flutter pub get
+      - name: Build Jaspr Site
+        # غير 'portfolio_jaspr' لاسم الـ Repository بتاعك لو مختلف 
+        # الخطوة دي مهمة جداً عشان ملفات الـ css والـ images تشتغل معاك ومتعملش 404 برضه
+        run: jaspr build -v --define BASE_HREF="/portfolio_jaspr/"
       - name: Setup Pages
-        uses: actions/configure-pages@v5
-
+        uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'jaspr_portfolio/build/jaspr'
-
+          path: './build/jaspr'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
