@@ -32,8 +32,10 @@ jobs:
       - name: Install Jaspr CLI
         run: dart pub global activate jaspr_cli
       - name: Install Dependencies
+        working-directory: ./jaspr_portfolio
         run: flutter pub get
       - name: Build Jaspr Site
+        working-directory: ./jaspr_portfolio
         # غير 'portfolio_jaspr' لاسم الـ Repository بتاعك لو مختلف 
         # الخطوة دي مهمة جداً عشان ملفات الـ css والـ images تشتغل معاك ومتعملش 404 برضه
         run: jaspr build -v --define BASE_HREF="/portfolio_jaspr/"
@@ -42,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build/jaspr'
+          path: './jaspr_portfolio/build/jaspr'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
