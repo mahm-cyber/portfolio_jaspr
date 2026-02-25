@@ -31,6 +31,12 @@ jobs:
         uses: dart-lang/setup-dart@v1
       - name: Install Jaspr CLI
         run: dart pub global activate jaspr_cli
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Tailwind CSS
+        run: npm install -g tailwindcss
       - name: Install Dependencies
         working-directory: ./jaspr_portfolio
         run: flutter pub get
