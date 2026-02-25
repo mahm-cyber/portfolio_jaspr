@@ -38,7 +38,7 @@ jobs:
         working-directory: ./jaspr_portfolio
         # غير 'portfolio_jaspr' لاسم الـ Repository بتاعك لو مختلف 
         # الخطوة دي مهمة جداً عشان ملفات الـ css والـ images تشتغل معاك ومتعملش 404 برضه
-        run: jaspr build -v --define BASE_HREF="/portfolio_jaspr/"
+        run: jaspr build -v --dart-define=BASE_HREF="/portfolio_jaspr/"
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
