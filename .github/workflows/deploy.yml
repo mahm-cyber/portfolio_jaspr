@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '20'
       - name: Install Tailwind CSS
-        run: npm install -g tailwindcss
+        run: npm install -g @tailwindcss/cli
       - name: Install Dependencies
         working-directory: ./jaspr_portfolio
         run: flutter pub get
